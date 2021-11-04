@@ -6,7 +6,7 @@
 #    By: aguiri <aguiri@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2021/11/02 15:17:11 by aguiri           ###   ########.fr        #
+#    Updated: 2021/11/04 01:09:11 by aguiri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,22 +18,40 @@ AR 					?= ar
 RM					?= rm -f
 MKDIR				?= mkdir -p
 
-SRCS				:= 	ft_printf.c
-OBJS 				:= $(SRCS:.c=.o)
-SRCS_BONUS			:= 	ft_lstadd_back.c
-OBJS_BONUS			:= $(SRCS_BONUS:.c=.o)
-HDRS				:= libftprintf.h
+# ********************************* P A T H S *********************************
 
-# -----------------------------------------------------------------------------
+SRCS_PATH			:= src
+OBJS_PATH			:= bin
+HDRS_PATH			:= include
+LIBS_PATH			:= libft
+
+# ********************************* N A M E S *********************************
+
+SRCS_NAME			:= 	ft_args_count.c\
+						ft_print_arg.c\
+						ft_printf.c\
+						main_test.c
+SRCS				:= $(addprefix $(SRCS_PATH)/, $(SRCS_NAME))
+OBJS 				:= $(addprefix $(OBJS_PATH)/, $(SRCS_NAME:.c=.o))
+
+SRCS_BONUS_NAME		:= 	ft_lstadd_back.c
+SRCS_BONUS			:= $(addprefix $(SRCS_PATH)/, $(SRCS_BONUS_NAME))
+OBJS_BONUS			:= $(addprefix $(OBJS_PATH)/, $(SRCS_BONUS_NAME:.c=.o))
+
+LIBS_NAME			:=  libft.a
+
+# ********************************* R U L E S *********************************
 
 all:				$(NAME)
 					
-%.o: 				%.c $(HDRS)
-					@$(CC) -o $@ -c $< -I $(HDRS) $(CFLAGS)
+$(OBJS_PATH)/%.o: 	$(SRCS_PATH)/%.c $(HDRS_PATH)
+					@$(MKDIR) $(dir $@)
+					@$(CC) -o $@ -c $< -I $(HDRS_PATH) $(CFLAGS)
 
 $(NAME):			$(OBJS)
+					@$(MAKE) -C ./$(LIBS_PATH)
+					@cp ./$(LIBS_PATH)/$(LIBS_NAME) $@
 					@$(AR) rcs $@ $^ 
-					@echo "Complete."
 
 bonus:				$(OBJS_BONUS) $(OBJS)
 					@$(AR) rcs $(NAME) $^
@@ -43,8 +61,12 @@ clean:
 					@$(RM) $(OBJS_BONUS)
 
 fclean:				clean	
+					@$(RM) -r $(OBJS_PATH)
 					@$(RM) $(NAME)
 
 re:					fclean all
 
-.PHONY:				all clean fclean re
+test:				all
+					$(CC) $(OBJS) ./libft/bin/*/*.o -o main_test.out $(CFLAGS)
+
+.PHONY:				all bonus clean fclean re test
