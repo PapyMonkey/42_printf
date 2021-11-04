@@ -1,3 +1,6 @@
 [submodule "libft"]
 	path = libft
 	url = https://github.com/PapyMonkey/42_libft
+[submodule "printftester_tripouille"]
+	path = printftester_tripouille
+	url = https://github.com/Tripouille/printfTester.git
