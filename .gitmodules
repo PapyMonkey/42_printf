@@ -4,3 +4,6 @@
 [submodule "printftester_tripouille"]
 	path = printftester_tripouille
 	url = https://github.com/Tripouille/printfTester.git
+[submodule "printftester_paulosantana"]
+	path = printftester_paulosantana
+	url = https://github.com/paulo-santana/ft_printf_tester
