@@ -6,7 +6,7 @@
 #    By: aguiri <aguiri@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2021/11/05 00:47:37 by aguiri           ###   ########.fr        #
+#    Updated: 2022/02/04 12:05:44 by aguiri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ LIBS_PATH			:= libft
 
 # ********************************* N A M E S *********************************
 
-SRCS_NAME			:= 	ft_args_count.c\
-						ft_printf_putaddress_fd.c\
+SRCS_NAME			:=	ft_printf_putaddress_fd.c\
 						ft_printf_putchar_fd.c\
 						ft_printf_putendl_fd.c\
 						ft_printf_putnbr_base_fd.c\
