@@ -6,7 +6,7 @@
 #    By: aguiri <aguiri@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2022/02/04 12:05:44 by aguiri           ###   ########.fr        #
+#    Updated: 2022/02/13 00:44:57 by aguiri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,7 @@ SRCS_NAME			:=	ft_printf_putaddress_fd.c\
 						ft_printf_putnbr_uns_fd.c\
 						ft_printf_putstr_fd.c\
 						ft_print_arg.c\
-						ft_printf.c\
-						main_test.c
+						ft_printf.c
 SRCS				:= $(addprefix $(SRCS_PATH)/, $(SRCS_NAME))
 OBJS 				:= $(addprefix $(OBJS_PATH)/, $(SRCS_NAME:.c=.o))
 
