@@ -12,4 +12,4 @@
 | **Libft authorized** | `Yes` |
 | **Description** | `Write a library that contains ft_printf(), a function that will mimic the original printf()` |
 
-![printf grade](https://badge42.herokuapp.com/api/project/aguiri/printf)
+![printf grade](https://badge42.vercel.app/api/v2/cl1m1z528009409l5bo2ovzih/project/2397111)
